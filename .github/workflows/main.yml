@@ -31,7 +31,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd season_checker-frontend
+        cd season_checker-frontend_wtf
         npm install
 
     #Run Test

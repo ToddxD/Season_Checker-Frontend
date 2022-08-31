@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
   
 jobs:
-  test:
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
 
     strategy:
@@ -37,6 +38,8 @@ jobs:
 
 
   build:
+    needs: tests
+    name: Build
     runs-on: ubuntu-latest
 
     strategy:

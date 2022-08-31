@@ -29,14 +29,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: cd season_checker-frontend
-        
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd season_checker-frontend
+        npm install
 
     #Run Test
-    #- name: Run the tests
-      #run: npm run test
+    - name: Run the tests
+      run: npm test
 
 
   build:
@@ -58,11 +58,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
-    - run: cd season_checker-frontend
         
     - name: Install dependencies
-      run: npm install
+      run:  |
+        cd season_checker-frontend
+        npm install
 
     #Build
     - name: Build

@@ -30,8 +30,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: cd season_checker-frontend
-    - run: npm install react-scripts --save
-    - run: npm install -g npm@8.18.0
         
     - name: Install dependencies
       run: npm install
@@ -62,8 +60,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: cd season_checker-frontend
-    - run: npm install react-scripts --save
-    - run: npm install -g npm@8.18.0
         
     - name: Install dependencies
       run: npm install

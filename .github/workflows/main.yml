@@ -38,7 +38,7 @@ jobs:
 
     #Run Test
     - name: Run the tests
-      run: npm test
+      run: npm run test
 
 
   build:

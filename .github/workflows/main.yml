@@ -81,5 +81,27 @@ jobs:
     - name: Upload Build
       uses: actions/upload-artifact@v2
       with:
-        name: react-github-actions-build
+        name: artifact
         path: season_checker-frontend/build
+  
+  
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download Build
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+      #Deploy
+      - name: Publish Package
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build
+          asset_name: release.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "This is my release text"

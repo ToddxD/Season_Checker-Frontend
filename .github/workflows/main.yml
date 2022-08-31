@@ -71,3 +71,9 @@ jobs:
       run: |
         cd season_checker-frontend
         npm run build
+        
+    - name: Upload Build
+      uses: actions/upload-artifact@v2
+      with:
+        name: buildJS
+        path: build

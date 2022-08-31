@@ -37,8 +37,8 @@ jobs:
       run: npm install
 
     #Run Test
-    - name: Run the tests
-      run: npm run test
+    #- name: Run the tests
+      #run: npm run test
 
 
   build:

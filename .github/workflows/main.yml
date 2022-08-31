@@ -30,7 +30,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd season_checker-frontend
+        npm install
 
     #Run Test
     - name: Run the tests
@@ -58,7 +60,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd season_checker-frontend
+        npm install
 
     #Build
     - name: Build

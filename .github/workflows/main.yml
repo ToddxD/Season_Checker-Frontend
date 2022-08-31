@@ -29,18 +29,16 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Pre Setup
-      run: |
-        cd season_checker-frontend
-        npm install react-scripts --save
-        npm install -g npm@8.18.0
+    - run: cd season_checker-frontend
+    - run: npm install react-scripts --save
+    - run: npm install -g npm@8.18.0
         
     - name: Install dependencies
       run: npm install
 
     #Run Test
-    - name: Run the tests
-      run: npm test
+    #- name: Run the tests
+      #run: npm run test
 
 
   build:
@@ -63,10 +61,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - run: cd season_checker-frontend
+    - run: npm install react-scripts --save
+    - run: npm install -g npm@8.18.0
+        
     - name: Install dependencies
-      run: |
-        cd season_checker-frontend
-        npm install
+      run: npm install
 
     #Build
     - name: Build

@@ -14,21 +14,24 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
     #Checkout Code
     - name: Checkout Code
       uses: actions/checkout@v2
 
     #Setup Node.js
-    - name: Set up Node.js ${{ matrix.node-version }}
+    - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
 
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        
     - name: Install dependencies
       run: |
         cd season_checker-frontend
@@ -46,20 +49,23 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
     #Checkout Code
     - name: Checkout Code
       uses: actions/checkout@v2
 
     #Setup Node.js
-    - name: Set up Node.js ${{ matrix.node-version }}
+    - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
+        
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
         
     - name: Install dependencies
       run: |
@@ -75,5 +81,5 @@ jobs:
     - name: Upload Build
       uses: actions/upload-artifact@v2
       with:
-        name: buildJS
-        path: build/*
+        name: react-github-actions-build
+        path: build

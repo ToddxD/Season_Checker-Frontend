@@ -69,6 +69,12 @@ jobs:
     #Build
     - name: Build
       run: npm run build
+      
+    - name: Upload JAR
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: build
   
   
   deploy:
@@ -78,11 +84,13 @@ jobs:
     
     steps:
     #Checkout Code
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - name: Download JAR
+        uses: actions/download-artifact@v2
+        with:
+          name: build
         
       - name: Deploy to GH-Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build
+          publish_dir: build

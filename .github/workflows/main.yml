@@ -77,12 +77,6 @@ jobs:
       run: |
         cd season_checker-frontend
         npm run build
-        
-    - name: Upload Build
-      uses: actions/upload-artifact@v2
-      with:
-        name: artifact
-        path: season_checker-frontend/build
   
   
   deploy:
@@ -91,17 +85,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Download Build
-        uses: actions/download-artifact@v3
+      - name: Deploy to GH-Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: artifact
-      #Deploy
-      - name: Publish Package
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/*
-          asset_name: release.zip
-          tag: ${{ github.ref }}
-          overwrite: true
-          body: "This is my release text"
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./season_checker-frontend/build

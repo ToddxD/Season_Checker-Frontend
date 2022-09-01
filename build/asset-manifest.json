@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Season_Checker-Frontend/static/css/main.073c9b0a.css",
+    "main.js": "/Season_Checker-Frontend/static/js/main.d199d018.js",
+    "static/js/787.bb239147.chunk.js": "/Season_Checker-Frontend/static/js/787.bb239147.chunk.js",
+    "index.html": "/Season_Checker-Frontend/index.html",
+    "main.073c9b0a.css.map": "/Season_Checker-Frontend/static/css/main.073c9b0a.css.map",
+    "main.d199d018.js.map": "/Season_Checker-Frontend/static/js/main.d199d018.js.map",
+    "787.bb239147.chunk.js.map": "/Season_Checker-Frontend/static/js/787.bb239147.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.d199d018.js"
+  ]
+}

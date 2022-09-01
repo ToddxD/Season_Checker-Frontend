@@ -33,15 +33,11 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
         
     - name: Install dependencies
-      run: |
-        cd season_checker-frontend
-        npm install
+      run: npm install
 
     #Run Test
     - name: Run the tests
-      run: |
-        cd season_checker-frontend
-        npm test
+      run: npm test
 
 
   build:
@@ -68,15 +64,11 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
         
     - name: Install dependencies
-      run: |
-        cd season_checker-frontend
-        npm install
+      run: npm install
 
     #Build
     - name: Build
-      run: |
-        cd season_checker-frontend
-        npm run build
+      run: npm run build
   
   
   deploy:

@@ -14,6 +14,7 @@ function BasicExample() {
         const eintrage={name}
         console.log(eintrage)
         fetch("https://seasonchecker.duckdns.org:1444/demo/addEntity/" +name+ "/20122020/20122020/true", {
+          //test
             method:"GET",
         }).then(()=> {
             console.log("neu erstellt")

@@ -13,7 +13,7 @@ function BasicExample() {
         e.preventDefault()
         const eintrage={name}
         console.log(eintrage)
-        fetch("http://localhost:8080/demo/add?name=" + name, {
+        fetch("https://seasonchecker.duckdns.org:1444/demo/addEntity/" +name+ "/20122020/20122020/true", {
             method:"GET",
         }).then(()=> {
             console.log("neu erstellt")
@@ -21,7 +21,7 @@ function BasicExample() {
     }
 
     useEffect(()=> {
-            fetch("http://localhost:8080/demo/all")
+            fetch("https://seasonchecker.duckdns.org:1444/demo/all")
             .then(res=>res.json())
             .then((result)=>{
                 setEintrage(result);

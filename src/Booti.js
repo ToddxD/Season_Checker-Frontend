@@ -20,12 +20,16 @@ function BasicExample() {
         })
     }
 
+    const fetchAllData=()=> {
+      fetch("https://seasonchecker.duckdns.org:1444/demo/all")
+      .then(res=>res.json())
+      .then((result)=>{
+          setEintrage(result);
+      })
+    }
+
     useEffect(()=> {
-            fetch("https://seasonchecker.duckdns.org:1444/demo/all")
-            .then(res=>res.json())
-            .then((result)=>{
-                setEintrage(result);
-            })
+      fetchAllData()
         }, [])
 
   return (
@@ -58,5 +62,7 @@ function BasicExample() {
     </Form>
   );
 }
+
+
 
 export default BasicExample;

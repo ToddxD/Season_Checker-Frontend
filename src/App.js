@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BasicExample from './Booti';
-import Basic from './components/Arcordion';
-import Tables from './components/Datatable';
+import MyComponent from './components/Datatable';
+
 
 function App() {
   
@@ -12,7 +12,7 @@ function App() {
       <h1>Seasonchecker</h1>
       <br/>
     <br/>
-    <Tables/>
+    <MyComponent/>
     </div>
   );
 }

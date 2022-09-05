@@ -16,7 +16,3 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-root.ready(function () {
-  document.getElementById('#dtBasicExample').DataTable();
-  document.getElementById('.dataTables_length').addClass('bs-select');
-});

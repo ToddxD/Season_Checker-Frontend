@@ -1,14 +1,15 @@
 import DataTable from 'react-data-table-component';
+import { useEffect, useState } from 'react';
 
 const columns = [
     {
-        name: 'Title',
-        selector: row => row.title,
+        name: 'id',
+        selector: row => row.id,
         sortable: true,
     },
     {
-        name: 'Year',
-        selector: row => row.year,
+        name: 'Title',
+        selector: row => row.name,
         sortable: true,
     },
 ];
@@ -26,11 +27,28 @@ const data = [
     },
 ]
 
+
 function MyComponent() {
+    const[eintrage, setEintrage]=useState([])
+
+    const fetchAllData=()=> {
+    //https://seasonchecker.duckdns.org:1444/demo/all
+    fetch("http://localhost:8080/demo/all")
+    .then(res=>res.json())
+    .then((result)=>{
+        setEintrage(result);
+    })
+  }
+
+    useEffect(()=> {
+        fetchAllData()
+          }, [])
+    
+
     return (
         <DataTable
             columns={columns}
-            data={data}
+            data={eintrage}
         />
     );
 };

@@ -3,53 +3,61 @@ import { useEffect, useState } from 'react';
 
 const columns = [
     {
-        name: 'id',
-        selector: row => row.id,
+        name: 'Lebensmittel',
+        selector: row => row.name,
         sortable: true,
     },
     {
-        name: 'Title',
-        selector: row => row.name,
+        name: 'beginnt am',
+        selector: row => row.anfangsDatum,
+        sortable: true,
+    },
+    {
+        name: 'endet am',
+        selector: row => row.endDatum,
+        sortable: true,
+    },
+    {
+        name: 'favourit',
+        selector: row => row.favorit ? "⭐" : "☆",
         sortable: true,
     },
 ];
 
-const data = [
-    {
-        id: 1,
-        title: 'Beetlejuice',
-        year: '1988',
-    },
-    {
-        id: 2,
-        title: 'Ghostbusters',
-        year: '1984',
-    },
-]
-
-
 function MyComponent() {
-    const[eintrage, setEintrage]=useState([])
+    const [eintrage, setEintrage] = useState([])
 
-    const fetchAllData=()=> {
-    //https://seasonchecker.duckdns.org:1444/demo/all
-    fetch("http://localhost:8080/demo/all")
-    .then(res=>res.json())
-    .then((result)=>{
-        setEintrage(result);
-    })
-  }
+    const fetchAllData = () => {
+        //https://seasonchecker.duckdns.org:1444/demo/all
+        fetch("https://seasonchecker.duckdns.org:1444/demo/all")
+            .then(res => res.json())
+            .then((result) => {
+                setEintrage(result);
+            })
+    }
 
-    useEffect(()=> {
+    useEffect(() => {
         fetchAllData()
-          }, [])
-    
+    }, [])
+
+    const [q, setQ] = useState("")
+
+    function search(row) {
+        return row.filter(row => row.name.toLowerCase().indexOf(q) > -1)
+    }
 
     return (
-        <DataTable
-            columns={columns}
-            data={eintrage}
-        />
+        <div>
+            <div>
+                <input type="text" value={q} onChange={(e) => setQ(e.target.value)} />
+            </div>
+            <div>
+                <DataTable
+                    columns={columns}
+                    data={search(eintrage)}
+                />
+            </div>
+        </div>
     );
 };
 export default MyComponent;

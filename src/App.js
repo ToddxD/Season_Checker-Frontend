@@ -6,8 +6,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
-			<CustomTable titel="In der Saison" />
-			<CustomTable titel="Außerhalb Saison" />
+			<CustomTable />
 		</div>
 	);
 }

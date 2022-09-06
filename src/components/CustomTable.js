@@ -17,25 +17,10 @@ const columns = [
 	},
 	{
 		name: 'Favorit',
-		selector: row => row.isFavorit,
+		selector: row => row.favorit ? "⭐" : "☆",
 		sortable: true
 	}
 ];
-
-const data = [
-	{
-		name: 'Apfel',
-		anfangsDatum: '12.10',
-		endDatum: '12.12',
-		isFavorit: 'false'
-	},
-	{
-		name: 'Birne',
-		anfangsDatum: '12.10',
-		endDatum: '12.12',
-		isFavorit: 'true'
-	}
-]
 
 const customStyles = {
 	header: {
@@ -72,6 +57,31 @@ const customStyles = {
 
 
 function CustomTable(props) {
+
+	const [onSeason, setOnSeason] = useState([])
+	const [offSeason, setOffSeason] = useState([])
+
+	const fetchAllDataOnSeason = () => {
+		fetch("https://seasonchecker.duckdns.org:1444/allOnSeason")
+			.then(res => res.json())
+			.then((result) => {
+				setOnSeason(result);
+			})
+	}
+
+	const fetchAllDataOffSeason = () => {
+		fetch("https://seasonchecker.duckdns.org:1444/allOffSeason")
+			.then(res => res.json())
+			.then((result) => {
+				setOffSeason(result);
+			})
+	}
+
+	useEffect(() => {
+		fetchAllDataOnSeason();
+		fetchAllDataOffSeason();
+	}, [])
+
 	const [q, setQ] = useState("")
 
 	function search(row) {
@@ -84,10 +94,16 @@ function CustomTable(props) {
 				<input type="text" placeholder="Suchen..." value={q} onChange={(e) => setQ(e.target.value)} />
 			</div>
 			<DataTable
-				title={props.titel}
+				title={"In der Saison"}
 				customStyles={customStyles}
 				columns={columns}
-				data={search(data)}
+				data={search(onSeason)}
+			/>
+			<DataTable
+				title={"Außerhalb der Saison"}
+				customStyles={customStyles}
+				columns={columns}
+				data={search(offSeason)}
 			/>
 		</div >
 

@@ -1,13 +1,15 @@
 import './App.css';
-import BasicExample from './Booti';
+import CustomTable from './components/CustomTable';
+import Header from './components/Header'
 
 function App() {
-  return (
-    <div className="App">
-      <br/>
-    <BasicExample/>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header />
+			<CustomTable titel="In der Saison" />
+			<CustomTable titel="Außerhalb Saison" />
+		</div>
+	);
 }
 
 export default App;

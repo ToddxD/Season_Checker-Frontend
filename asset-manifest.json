@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Season_Checker-Frontend/static/css/main.64d399a7.css",
-    "main.js": "/Season_Checker-Frontend/static/js/main.88f738f9.js",
+    "main.css": "/Season_Checker-Frontend/static/css/main.87d38162.css",
+    "main.js": "/Season_Checker-Frontend/static/js/main.d5b7d4ca.js",
     "static/js/787.bb239147.chunk.js": "/Season_Checker-Frontend/static/js/787.bb239147.chunk.js",
     "index.html": "/Season_Checker-Frontend/index.html",
     "static/media/search.svg": "/Season_Checker-Frontend/static/media/search.8e1328398eb0e4bc0f8e.svg",
-    "main.64d399a7.css.map": "/Season_Checker-Frontend/static/css/main.64d399a7.css.map",
-    "main.88f738f9.js.map": "/Season_Checker-Frontend/static/js/main.88f738f9.js.map",
+    "main.87d38162.css.map": "/Season_Checker-Frontend/static/css/main.87d38162.css.map",
+    "main.d5b7d4ca.js.map": "/Season_Checker-Frontend/static/js/main.d5b7d4ca.js.map",
     "787.bb239147.chunk.js.map": "/Season_Checker-Frontend/static/js/787.bb239147.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.64d399a7.css",
-    "static/js/main.88f738f9.js"
+    "static/css/main.87d38162.css",
+    "static/js/main.d5b7d4ca.js"
   ]
 }

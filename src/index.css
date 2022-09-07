@@ -43,3 +43,8 @@ input {
 	padding-top: 4%;
 	text-align: center;
 }
+
+svg {
+	cursor: pointer;
+	scale: 1.3;
+}

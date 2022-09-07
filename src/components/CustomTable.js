@@ -14,7 +14,7 @@ function CustomTable() {
 	const [onSeason, setOnSeason] = useState([])
 	const [offSeason, setOffSeason] = useState([])
 
-	const columns = [
+	var columns = [
 		{
 			name: 'Lebensmittel',
 			selector: row => row.name,
@@ -77,8 +77,9 @@ function CustomTable() {
 		},
 	};
 
-	const handleClick = (isFav, id) => {
-		fetch("https://seasonchecker.duckdns.org:1444/updateFavorit/" + id + "/" + !isFav);
+
+	async function handleClick(isFav, id) {
+		await fetch("https://seasonchecker.duckdns.org:1444/updateFavorit/" + id + "/" + !isFav);
 		fetchAllDataOnSeason();
 		fetchAllDataOffSeason();
 	}
